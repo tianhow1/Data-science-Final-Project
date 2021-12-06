@@ -19,10 +19,12 @@ import tensorflow as tf
 from tensorflow import keras
 import sklearn
 from sklearn.linear_model import LinearRegression
+
 reg = LinearRegression(fit_intercept=True)
 rng = np.random.default_rng()
 st.title("Income Data for people in Tech")
 st.markdown("Tianhong Wang")
+st.markdown("https://github.com/tianhow1/Data-science-Final-Project")
 st.write("The data is from https://www.kaggle.com/jackogozaly/data-science-and-stem-salaries")
 df=pd.read_csv('./Levels_Fyi_Salary_Data.csv')
 
