@@ -222,7 +222,7 @@ scaler.fit(df2[['basesalary','stockgrantvalue', 'bonus','totalyearlycompensation
 a=np.array([basesalary,stockgrantvalue,bonus,totalyearlycompensation,yearsofexperience,yearsatcompany]).reshape(1,6)
 a=scaler.transform(a)
 T=model.predict(a)
-if a>0.5:
+if T>0.5:
     key_word="Yes, it is"
 else:
     key_word="No, it isn't"
