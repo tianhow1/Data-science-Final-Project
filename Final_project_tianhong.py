@@ -210,17 +210,23 @@ ax.set_xlabel('epoch')
 ax.legend(['train', 'validation'], loc='upper right')
 st.pyplot(fig1)
 st.write("It shows that for PhD degree and High school degree the training isn't overfitting, but this mode is not that good for master.")
-# st.subheader(f"Try to predict if the worker is {Train}")
+st.subheader(f"Try to predict if the worker is {Train}")
 
-# basesalary=st.number_input("The basesalary is")
-# stockgrantvalue=st.number_input("The stockgrantvalue is")
-# bonus=st.number_input("The bonus is")
-# totalyearlycompensation=st.number_input("The total yearly compensation is")
-# yearsofexperience=st.number_input("The years of experience is")
-# yearsatcompany=st.number_input("The years at company is")
-# scaler.fit(df2[['basesalary','stockgrantvalue', 'bonus','totalyearlycompensation','yearsofexperience','yearsatcompany']])
-# np.array[basesalary,stockgrantvalue,bonus,totalyearlycompensation,yearsofexperience,yearsatcompany]=scaler.transform(np.array[basesalary,stockgrantvalue,bonus,totalyearlycompensation,yearsofexperience,yearsatcompany])
-# a=a.reshape(-1,1)
+basesalary=st.number_input("The basesalary is")
+stockgrantvalue=st.number_input("The stockgrantvalue is")
+bonus=st.number_input("The bonus is")
+totalyearlycompensation=st.number_input("The total yearly compensation is")
+yearsofexperience=st.number_input("The years of experience is")
+yearsatcompany=st.number_input("The years at company is")
+scaler.fit(df2[['basesalary','stockgrantvalue', 'bonus','totalyearlycompensation','yearsofexperience','yearsatcompany']])
+a=np.array([basesalary,stockgrantvalue,bonus,totalyearlycompensation,yearsofexperience,yearsatcompany]).reshape(1,6)
+a=scaler.transform(a)
+T=model.predict(a)
+if a>0.5:
+    key_word="Yes, it is"
+else:
+    key_word="No, it isn't"
+st.write(f"{key_word}")
 
 
 
