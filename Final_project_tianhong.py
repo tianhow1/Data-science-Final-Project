@@ -226,7 +226,7 @@ if T>0.5:
     key_word="Yes, it is"
 else:
     key_word="No, it isn't"
-st.write(f"{key_word}")
+st.write(f"{key_word} {Train} degree")
 
 
 
